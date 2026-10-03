@@ -1,0 +1,64 @@
+{% load static tailwind_tags %}
+<!doctype html>
+<html lang="en">
+  <head>
+    {% tailwind_css %}
+  </head>
+  <body
+    class="w-screen h-screen flex p-10 justify-end items-center bg-amber-50"
+  >
+    <div
+      class="w-[50%] h-[95%] pr-[1%] mt-5 flex flex-col justify-end place-items-end"
+    >
+      <div class="absolute top-[7%] left-[1%] flex flex-col">
+        <h1
+          class="pl-2 text-6xl font-bold w-auto opacity-0 transition-all lg:opacity-100"
+        >
+          INSERT NAME HERE
+        </h1>
+        <h1
+          class="text-2xl font-bold w-auto opacity-0 transition-all lg:opacity-100"
+        >
+          CODENAME
+        </h1>
+      </div>
+
+      <div
+        class="absolute top-[10%] right-[10%] bg-gray-300 w-[85%] min-w-100 h-[78%] ml-[50%] mb-1 rounded flex justify-center place-items-center -z-10 mask-y-from-98% mask-y-to-100%"
+      >
+        too lazy to display image of student
+      </div>
+
+      <h1
+        class="text-4xl min-w-20 font-semibold w-full text-indigo-700 opacity-0 transition-all md:opacity-100"
+      >
+        QUIZ #3
+      </h1>
+    </div>
+    <div
+      class="w-[50%] min-w-100 min-h-100 h-full overflow-y-scroll snap-y snap-mandatory scroll-smooth flex flex-col rounded place-items-end mask-y-from-99% mask-y-to-100%"
+    >
+      {%for student in all_students%}
+      <div
+        class="group w-[70%] min-w-80 hover:w-full hover:h-[20%] hover:pr-20 transition-all duration-100 shrink-0 snap-always"
+      >
+        <div
+          class="m-1 p-5 w-[95%] h-[95%] flex flex-col place-content-center rounded-4xl bg-amber-500 transition-all delay-150 duration-150 group-hover:bg-amber-400"
+        >
+          <h1
+            class="text-amber-50 text-xl group-hover:text-3xl flex flex-wrap transition-all delay-150 duration-200"
+          >
+            {{student.section}}: {{student.firstname}} {{student.lastname}}
+          </h1>
+          <p
+            class="group-hover:text-xl flex flex-wrap transition-all delay-150 duration-150"
+          >
+            CODENAME: {{student.codename}}
+          </p>
+        </div>
+      </div>
+
+      {%endfor%}
+    </div>
+  </body>
+</html>
